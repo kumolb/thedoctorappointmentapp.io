@@ -1,12 +1,12 @@
 {
     "development":{
         "PORT":"8080",
-        "MONGO_URL":"mongodb://kumol:kumol254@ds245677.mlab.com:45677/hiredoctor",
+        "MONGO_URL":"mongodb://127.0.0.1:27017/hiredoctor",
         "JWT_SERECT":"hiredoctor"
     },
     "production":{
         "PORT":"8080",
-        "MONGO_URL":"",
+        "MONGO_URL":"mongodb://kumol:kumol254@ds245677.mlab.com:45677/hiredoctor",
         "JWT_SERECT":"hiredoctor"
     }
 }

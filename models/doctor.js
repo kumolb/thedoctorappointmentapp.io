@@ -5,7 +5,7 @@ const doctorSchema = mongoose.Schema({
     address: { type: String },
     college: { type: String },
     email: { type: String },
-    contact: { type: String },
+    contactNumber: { type: String },
     degrees: [{ type: mongoose.Schema.Types.ObjectId, ref: "Degree" }],
     skill: [{ type: mongoose.Schema.Types.ObjectId, ref: "Skill" }],
     position: { type: String },
