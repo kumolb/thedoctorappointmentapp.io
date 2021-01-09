@@ -11,7 +11,7 @@ const doctorSchema = mongoose.Schema({
     position: { type: String },
     chembers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Organization" }],
     image: { type: String },
-    appointmentWith: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
+    appointment: [{ type: mongoose.Schema.Types.ObjectId, ref: "Appointment" }]
 });
 
 module.exports = mongoose.model("Doctor", doctorSchema);
