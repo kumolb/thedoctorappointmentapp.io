@@ -1,7 +1,7 @@
 {
     "development":{
-        "PORT":"8080",
-        "MONGO_URL":"mongodb://127.0.0.1:27017/hiredoctor",
+        "PORT":"8000",
+        "MONGO_URL":"mongodb+srv://kumol:kumol254@cluster0.kptnm.mongodb.net/hiredoctor?retryWrites=true&w=majority",
         "JWT_SERECT":"hiredoctor"
     },
     "production":{
