@@ -7,17 +7,25 @@ router.get("/all",(req,res)=>{
 });
 
 router.post("/save",(req,res)=>{
-    User.create({...req.body}).then((result,err)=>{
-        if(!err){
-            res.status(200).json({result});
+    User.find({number:req.body.number}).then((result)=>{
+        if(result){
+            
+        }else{
+            User.create({...req.body}).then((result)=>{
+                if(result){
+                    res.status(200).json({message:"Succcess to save user"});
+                }
+            }).catch(err=>{
+                res.status(500).json({error:err});
+            })
         }
     }).catch(err=>{
-        res.status(500).json({message:error});
+        res.status(500).json({error:err});
     })
 });
 
-router.get("/login/:id",(req,res)=>{
-    User.findOne({_id:req.params.id}).then(result=>{
+router.post("/login",(req,res)=>{
+    User.findOne({number:req.body.number}).then(result=>{
         res.status(200).json(result);
     }).catch(err=>{
         res.status(500).json(err);
