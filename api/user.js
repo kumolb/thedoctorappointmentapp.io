@@ -16,11 +16,11 @@ router.get("/all",(req,res)=>{
 router.post("/save",async(req,res)=>{
     let user = await User.find({number:req.body.number});
     if (user.length>0){
-        res.status(204).json({message:"User already available!!"});
+        res.status(200).json({user:user});
     }else{
         let setUser = await User.create({...req.body});
         if(setUser){
-            res.status(200).json({message:"Succcess to save user"});
+            res.status(200).json({message:"Succcess to save user",user:setUser});
         }
     }
     // User.find({number:req.body.number}).then((result)=>{
