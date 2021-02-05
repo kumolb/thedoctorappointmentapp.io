@@ -1,27 +1,46 @@
+const { response } = require("express");
 var express = require("express");
 const User = require("../models/user");
 var router = express.Router();
 
 router.get("/all",(req,res)=>{
-    res.send("Hello");
-});
-
-router.post("/save",(req,res)=>{
-    User.find({number:req.body.number}).then((result)=>{
-        if(result){
-            
-        }else{
-            User.create({...req.body}).then((result)=>{
-                if(result){
-                    res.status(200).json({message:"Succcess to save user"});
-                }
-            }).catch(err=>{
-                res.status(500).json({error:err});
-            })
+    User.find().then((response)=>{
+        if(response){
+            res.status(200).json(response);
         }
     }).catch(err=>{
-        res.status(500).json({error:err});
+        res.status(404).json(err);
     })
+});
+
+router.post("/save",async(req,res)=>{
+    let user = await User.find({number:req.body.number});
+    if (user.length>0){
+        res.status(204).json({message:"User already available!!"});
+    }else{
+        let setUser = await User.create({...req.body});
+        if(setUser){
+            res.status(200).json({message:"Succcess to save user"});
+        }
+    }
+    // User.find({number:req.body.number}).then((result)=>{
+    //     console.log(result);
+    //     if(result.length>0){
+    //         res.status(200).json({message:"User already exists"});
+    //     }else{
+    //         console.log("creating");
+    //         User.create({...req.body}).then((result)=>{
+    //             if(result){
+    //                 console.log("sending response");
+    //                 res.status(200).json({message:"Succcess to save user"});
+    //             }
+    //         }).catch(err=>{
+    //             res.status(500).json({error:err});
+    //         })
+    //     }
+    // }).catch(err=>{
+    //     res.status(500).json({error:err});
+    // })
 });
 
 router.post("/login",(req,res)=>{
