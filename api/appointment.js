@@ -14,6 +14,7 @@ router.get("/all",(req,res)=>{
 router.post("/save",(req,res,next)=>{
     console.log(req.body);
     Doctor.find({_id:req.body.doctor})
+    console.log(req.body);
     Appointment.find({_doctor:req.body.doctor,date:req.body.date,time:req.body.time}).then((result)=>{
         if(result.length<limit){
             Appointment.create(new Appointment({...req.body})).then((result)=>{
