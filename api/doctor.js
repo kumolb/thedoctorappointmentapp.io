@@ -1,5 +1,6 @@
 var express = require("express");
 const Doctor = require("../models/doctor");
+const doctorsHelper = require("./controller/doctorController");
 var router = express.Router();
 
 router.get("/all",(req,res)=>{
@@ -29,5 +30,7 @@ router.delete("/delete/:id",(req,res,next)=>{
         })
     })
 })
+
+router.get("/organization/:id",doctorsHelper.getDoctorByOrganizationId);
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 var mongoose = require("mongoose");
+const organizationHelper = require("./controller/organizationController");
 const Organization = require("../models/organization");
 router.get("/",(req,res)=>{
     Organization.find().then((result,err)=>{
@@ -18,4 +19,6 @@ router.post("/save",(req,res,next)=>{
         res.status(500).send({error:err});
     });
 });
+
+router.get("/:id",organizationHelper.getOrganizationById);
 module.exports = router;
