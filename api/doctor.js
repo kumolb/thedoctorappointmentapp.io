@@ -21,6 +21,8 @@ router.post("/save",(req,res,next)=>{
     })
 });
 
+router.get("/:id",doctorsHelper.getDoctorById);
+
 router.delete("/delete/:id",(req,res,next)=>{
     Doctor.remove({_id:req.params.id}).then((result)=>{
         res.status(200).json({result});

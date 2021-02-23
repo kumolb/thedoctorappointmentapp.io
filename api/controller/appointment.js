@@ -9,7 +9,6 @@ module.exports.getAllAppointment = async (req,res)=>{
 }
 
 module.exports.createNewAppointment = async (req,res,next)=>{
-    let dr = await getDoctorById(req.body.doctor);
     let query={}
     query.doctor = req.body.doctor;
     let appointment = await Appointment.find(query);
