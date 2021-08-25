@@ -9,7 +9,7 @@ let organizationSchema = mongoose.Schema({
     email: { type: String },
     website: { type: String },
     address: { type: String },
-    city: { type: mongoose.Schema.Types.ObjectId, ref: "City" },
+    district: { type: mongoose.Schema.Types.ObjectId, ref: "District" },
     division: { type: mongoose.Schema.Types.ObjectId, ref: "Division" },
     logo: { type: String },
     doctor: [{ ref: "Doctor", type: mongoose.Schema.Types.ObjectId }]

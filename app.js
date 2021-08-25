@@ -8,7 +8,8 @@ let userRouter = require("./api/user");
 let organizationRouter = require("./api/organization");
 let doctorRouter = require("./api/doctor");
 let appointmentRouter = require("./api/appointment");
-app.listen(process.env.PORT|| config.development.PORT,(err)=>{
+const port = process.env.PORT|| config.development.PORT;
+app.listen(port,(err)=>{
     if(!err){
         console.log(`app is running on port ${config.development.PORT}`);
     }else{

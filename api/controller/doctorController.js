@@ -26,3 +26,5 @@ module.exports.getDoctorByOrganizationId = async(req,res) => {
         res.status(500).json({message:"error"});
     }
 }
+
+//sudo apt-get install openjdk-8-jdk
