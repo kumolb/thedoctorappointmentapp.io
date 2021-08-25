@@ -1,0 +1,10 @@
+const route = require("express").Router();
+//const adminController = require("../../controller/admin/skillController");
+const adminController = require("../../../controller/admin/skillController");
+route.get("/skill/", adminController.getAllSkill);
+route.post("/skill/",adminController.addNewSkill);
+route.get("/department/",adminController.getAllDepartment);
+route.post("/department/",adminController.addNewDepartment);
+route.get("/position/",adminController.getAllPosition);
+route.post("/position/",adminController.addNewPosition);
+module.exports = route;

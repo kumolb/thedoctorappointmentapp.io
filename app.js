@@ -8,6 +8,8 @@ let userRouter = require("./api/user");
 let organizationRouter = require("./api/organization");
 let doctorRouter = require("./api/doctor");
 let appointmentRouter = require("./api/appointment");
+const superAdminRouter = require("./api/route/admin/staticDataControl/staticDataControl");
+
 const port = process.env.PORT|| config.development.PORT;
 app.listen(port,(err)=>{
     if(!err){
@@ -28,3 +30,5 @@ app.use("/api/user",userRouter);
 app.use("/api/organization",organizationRouter);
 app.use("/api/doctor",doctorRouter);
 app.use("/api/appointment",appointmentRouter);
+
+app.use("/api/admin/system",superAdminRouter);

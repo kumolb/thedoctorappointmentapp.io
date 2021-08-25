@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 let skillSchema = mongoose.Schema({
-    name: String,
+    title: String,
     details: String
 });
 
