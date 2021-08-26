@@ -1,10 +1,16 @@
 const route = require("express").Router();
 //const adminController = require("../../controller/admin/skillController");
 const adminController = require("../../../controller/admin/skillController");
+const locationController = require("../../../controller/admin/locationServiceController");
 route.get("/skill/", adminController.getAllSkill);
 route.post("/skill/",adminController.addNewSkill);
 route.get("/department/",adminController.getAllDepartment);
 route.post("/department/",adminController.addNewDepartment);
 route.get("/position/",adminController.getAllPosition);
 route.post("/position/",adminController.addNewPosition);
+route.get("/division/",locationController.getAllDivision);
+route.post("/division/",locationController.addNewDivision);
+route.get("/district/",locationController.getDistrict);
+route.post("/district/",locationController.addNewDistrict);
+route.patch("/district/",locationController.updateDistrict);
 module.exports = route;

@@ -40,8 +40,7 @@ module.exports.getAllDepartment = async(req,res,next)=> {
 module.exports.addNewDepartment = async(req,res,next) => {
     try{
         const department = new Department({
-            title: req.body.title,
-            details: req.body.details
+            name:req.body.name
         });
         let result = await department.save();
         res.status(200).json({body: result});
