@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-let organizationSchema = mongoose.Schema({
+let chamberSchema = mongoose.Schema({
     name: { type: String },
     organization_Id: { type: Number },
     details: { type: String },
@@ -11,11 +11,23 @@ let organizationSchema = mongoose.Schema({
     address: { type: String },
     district: { type: mongoose.Schema.Types.ObjectId, ref: "District" },
     division: { type: mongoose.Schema.Types.ObjectId, ref: "Division" },
+    location: {
+        type: {
+          type: String, // Don't do `{ location: { type: String } }`
+          enum: ['Point'], // 'location.type' must be 'Point'
+          required: true
+        },
+        coordinates: {
+          type: [Number],
+          required: true
+        }
+    },
     logo: { type: String },
     appointment: [{ type: mongoose.Schema.Types.ObjectId, ref: "Appointment" }],
     startTime:Date,
     endTime:Date,
-    doctor: [{ ref: "Doctor", type: mongoose.Schema.Types.ObjectId }]
+    totalPatient:Number,
+    doctor: { ref: "Doctor", type: mongoose.Schema.Types.ObjectId }
 });
 
-module.exports = mongoose.model("Organization", organizationSchema);
+module.exports = mongoose.model("Chamber", chamberSchema);

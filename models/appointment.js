@@ -4,7 +4,8 @@ const appointmentSchema = mongoose.Schema({
     time: Date,
     organization: { type:mongoose.Schema.Types.ObjectId,ref :"Organization" },
     doctor: { type: mongoose.Schema.Types.ObjectId, ref: "Doctor" },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    status: { type: String},
 });
 
 module.exports = mongoose.model("Appointment", appointmentSchema);

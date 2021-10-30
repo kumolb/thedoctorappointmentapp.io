@@ -6,7 +6,7 @@ module.exports = mongoose.model("Experience",mongoose.Schema({
     strartDate: Date,
     endDate: Date,
     running: Boolean,
-    institue: {type: mongoose.Schema.Types.ObjectId, ref: "Organization"},
+    institue: { type: mongoose.Schema.Types.ObjectId, ref: "Organization"},
     location: String,
     workingPeriod: Number
 }));
